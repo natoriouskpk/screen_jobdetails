@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:flutter_map/flutter_map.dart';
+import 'package:latlong2/latlong.dart';
 
 void main() {
   runApp(const MyApp());
@@ -56,6 +58,25 @@ class _MyHomePageState extends State<MyHomePage> {
           onPressed: () => Navigator.of(context).pop(),
         )*/ // Back-Arrow
         ),
+        floatingActionButton: FloatingActionButton(
+          backgroundColor: Colors.black,
+          child: Icon(Icons.home),
+          onPressed: () {},
+        ),
+        bottomNavigationBar: BottomNavigationBar(
+            backgroundColor: Colors.grey,
+            selectedItemColor: Colors.white,
+            items: const <BottomNavigationBarItem>[
+              BottomNavigationBarItem(
+                icon: Icon(Icons.search),
+                label: 'Suchen',
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(Icons.person),
+                label: 'Profil',
+              ),
+            ]),
+        floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
         body: ListView(
           children: [
             Image.network(
@@ -248,18 +269,96 @@ class _MyHomePageState extends State<MyHomePage> {
                     ),
                   ),
                   Padding(
-                      padding: const EdgeInsets.fromLTRB(65, 0, 40, 0),
-                      child: CircleAvatar(
-                        backgroundColor: Colors.blueGrey,
-                        minRadius: 50,
-                        maxRadius: 50,
-                        child: Image(
-                          image: AssetImage('icons/user-graduate-solid.png'),
-                        ),
+                    padding: const EdgeInsets.fromLTRB(65, 0, 40, 0),
+                    child: CircleAvatar(
+                      backgroundColor: Colors.blueGrey,
+                      minRadius: 50,
+                      maxRadius: 50,
+                      child: Image(
+                        image: AssetImage('icons/user-graduate-solid.png'),
                       ),
+                    ),
                   ),
                 ],
               ),
+            ),
+            /*FlutterMap(
+                options: MapOptions(
+                  center: LatLng(50.5647222222, 9.6875),
+                  zoom: 13.0,
+                ),
+                layers: [
+                  TileLayerOptions(
+                    urlTemplate: "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+                    subdomains: ['a', 'b', 'c'],
+                    attributionBuilder: (_) {
+                      return Text("© OpenStreetMap contributors");
+                    },
+                  ),
+                  MarkerLayerOptions(
+                    markers: [
+                      Marker(
+                        width: 80.0,
+                        height: 80.0,
+                        point: LatLng(51.5, -0.09),
+                        builder: (ctx) =>
+                            Container(
+                              child: FlutterLogo(),
+                            ),
+                      ),
+                    ],
+                  ),
+                ],
+            ),*/
+            Padding(
+              padding: const EdgeInsets.fromLTRB(0, 30, 0, 0),
+              child: Image(
+                image: AssetImage('images/maps.PNG'),
+              ),
+            ),
+            Row(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(115, 30, 0, 0),
+                  child: CircleAvatar(
+                    backgroundColor: Colors.blueGrey,
+                    minRadius: 25,
+                    maxRadius: 25,
+                    child: Image(image: AssetImage('icons/google-brands.png')),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(15, 30, 0, 0),
+                  child: Column(
+                    children: [
+                      Text("Hochschule Fulda",
+                          style: TextStyle(
+                            fontStyle: FontStyle.italic,
+                          )),
+                      Text("Leipziger Str. 123",
+                          style: TextStyle(
+                            fontStyle: FontStyle.italic,
+                          )),
+                      Text("36037 Fulda",
+                          style: TextStyle(
+                            fontStyle: FontStyle.italic,
+                          )),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+            Padding(
+              padding: const EdgeInsets.fromLTRB(45, 30, 45, 0),
+              child: ElevatedButton(
+                  onPressed: () {},
+                  child: Text(
+                    "Bewerben"
+                  ),
+              ),
+            ),
+            SizedBox(
+              height: 100,
             )
           ],
         ));
