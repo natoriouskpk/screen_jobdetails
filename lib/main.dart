@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
         fontFamily: 'Roboto',
         primarySwatch: Colors.blueGrey,
       ),
-      home: const MyHomePage(title: 'Pflege der Grünflächen'),
+      home: const MyHomePage(title: 'Grünflächenpflege'),
     );
   }
 }
@@ -55,13 +55,13 @@ class _MyHomePageState extends State<MyHomePage> {
           onPressed: () => Navigator.of(context).pop(),
         )*/ // Back-Arrow
         ),
-        body: Column(
+        body: ListView(
           children: [
-            Image.network(
-              'https://www.rose-galabau.de/wp-content/uploads/2021/10/Rose-landschaftsbau-gruenflaechenpflege-gewerbliche-landschaftsgaertner-pflasterarbeiten.jp_.jpg',
-            ),
+              Image.network(
+                'https://www.rose-galabau.de/wp-content/uploads/2021/10/Rose-landschaftsbau-gruenflaechenpflege-gewerbliche-landschaftsgaertner-pflasterarbeiten.jp_.jpg',
+              ),
             Padding(
-              padding: EdgeInsets.fromLTRB(30, 10, 0, 0),
+              padding: EdgeInsets.fromLTRB(44, 10, 0, 0),
               child: Align(
                 alignment: Alignment.centerLeft,
                 child: Text(
@@ -73,10 +73,10 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
               ),
             ),
-            CarouselSlider(
-              options: CarouselOptions(
+              CarouselSlider(
+                options: CarouselOptions(
                   height: 200.0,
-                  aspectRatio: 16/9,
+                  aspectRatio: 16 / 9,
                   viewportFraction: 0.8,
                   initialPage: 0,
                   enableInfiniteScroll: true,
@@ -88,27 +88,99 @@ class _MyHomePageState extends State<MyHomePage> {
                   enlargeCenterPage: true,
                   //onPageChanged: callbackFunction,
                   scrollDirection: Axis.horizontal,
-              ),
-              items: [1,2,3,4,5].map((i) {
-                return Builder(
-                  builder: (BuildContext context) {
-                    return Container(
+                ),
+                items: [1, 2, 3, 4, 5].map((i) {
+                  return Builder(
+                    builder: (BuildContext context) {
+                      return Container(
                         width: MediaQuery.of(context).size.width,
-                        margin: EdgeInsets.symmetric(horizontal: 3.0, vertical: 15.0),
-                        decoration: BoxDecoration(
-                            color: Colors.black
-                        ),
+                        margin:
+                            EdgeInsets.symmetric(horizontal: 3.0, vertical: 15.0),
+                        decoration: BoxDecoration(color: Colors.black),
                         child: Align(
                           alignment: Alignment.bottomCenter,
                           child: Padding(
                             padding: EdgeInsets.fromLTRB(0, 0, 0, 5),
-                            child: Text('Tätigkeit $i', style: TextStyle(fontSize: 16.0, color: Colors.white),),
+                            child: Text(
+                              'Tätigkeit $i',
+                              style:
+                                  TextStyle(fontSize: 16.0, color: Colors.white),
+                            ),
                           ),
                         ),
-                    );
-                  },
-                );
-              }).toList(),
+                      );
+                    },
+                  );
+                }).toList(),
+              ),
+            Padding(
+              padding: EdgeInsets.fromLTRB(44, 10, 44, 0),
+              child: Align(
+                alignment: Alignment.centerLeft,
+                child: Text(
+                  "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.",
+                  style: TextStyle(
+                    fontSize: 15,
+                    fontWeight: FontWeight.normal,
+                  ),
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.fromLTRB(0, 30, 0, 0),
+              child: Container(
+                  width: MediaQuery.of(context).size.width,
+                  height: 100,
+                  color: Colors.blueGrey,
+                    child: Row(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.fromLTRB(43, 10, 15, 15),
+                          child: Container(
+                            width: 60,
+                            height: 60,
+                            decoration: BoxDecoration(
+                              color: Colors.white,
+                              shape: BoxShape.circle,
+                            ),
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.fromLTRB(15, 10, 15, 15),
+                          child: Container(
+                            width: 60,
+                            height: 60,
+                            decoration: BoxDecoration(
+                              color: Colors.white,
+                              shape: BoxShape.circle,
+                            ),
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.fromLTRB(15, 10, 15, 15),
+                          child: Container(
+                            width: 60,
+                            height: 60,
+                            decoration: BoxDecoration(
+                              color: Colors.white,
+                              shape: BoxShape.circle,
+                            ),
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.fromLTRB(15, 10, 17, 15),
+                          child: Container(
+                            width: 60,
+                            height: 60,
+                            decoration: BoxDecoration(
+                              color: Colors.white,
+                              shape: BoxShape.circle,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                ),
             ),
           ],
         ));
